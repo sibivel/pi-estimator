@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>Find Pi</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script>
+  // mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
+</script>
+<style>
+body {
+  --mdc-theme-primary: rgb(0, 81, 255);
+  --mdc-theme-secondary: red;
+  --mdc-theme-surface: blue;  
+  --mdc-theme-background: black;
+}
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<script src="./js/slider.js"></script>
+<script src="./js/circle.js"></script>
+<script src="./js/textcomponent.js"></script>
+<script src="./js/findpi.js"></script>
+<body onload="start()">
+  <div class="block">
+    <div class="wrapper">
+      <button class="mdc-button mdc-button--raised" onclick = "newPoint()">Place Point</button>
+    </div>
+    <div class="wrapper slidecontainer">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="speedslider" onchange="updateTextInput(this.value);">
+        <input type="text" id="speedtext" value="50" onchange="updateSliderInput(this.value);">
+    </div>
+    <button class="mdc-button mdc-button--raised" onclick = "continuous()">Start</button>
+    <button class="mdc-button mdc-button--raised" onclick = "stop()">Stop</button>
+    <div class="instantplacement">
+        <input type="text" id="instantplacementtext" value="0">
+        <button class="mdc-button mdc-button--raised" onclick = "instantPlace()">Place</button>
+    </div>
+  </div>
+<!-- <h1 style="font-family:Consolas;text-align:center">Eat The Tide Pods</h1> -->
+
+</body>
+</html>
