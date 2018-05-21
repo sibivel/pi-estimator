@@ -3,19 +3,9 @@
 <title>Find Pi</title>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-<link rel="stylesheet" href="./css/style.css">
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script>
-  // mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
-</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <style>
-body {
-  --mdc-theme-primary: rgb(0, 81, 255);
-  --mdc-theme-secondary: red;
-  --mdc-theme-surface: blue;  
-  --mdc-theme-background: black;
-}
+
 canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
@@ -27,22 +17,37 @@ canvas {
 <script src="./js/textcomponent.js"></script>
 <script src="./js/findpi.js"></script>
 <body onload="start()">
-  <div class="block">
-    <div class="wrapper">
-      <button class="mdc-button mdc-button--raised" onclick = "newPoint()">Place Point</button>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm text-center">
+        Place One Point: 
+        <button type="button" class="btn btn-primary" onclick = "newPoint()">Place Point</button>
+      </div>
     </div>
-    <div class="wrapper slidecontainer">
+    <div class="row slidecontainer">
+      <div class ="col-sm text-center">
+        Continuous Placement Interval: 
         <input type="range" min="1" max="1000" value="50" class="slider" id="speedslider" onchange="updateTextInput(this.value);">
         <input type="text" id="speedtext" value="50" onchange="updateSliderInput(this.value);">
+      </div>
     </div>
-    <button class="mdc-button mdc-button--raised" onclick = "continuous()">Start</button>
-    <button class="mdc-button mdc-button--raised" onclick = "stop()">Stop</button>
-    <div class="instantplacement">
-        <input type="text" id="instantplacementtext" value="0">
-        <button class="mdc-button mdc-button--raised" onclick = "instantPlace()">Place</button>
+    <div class="row slidecontainer">
+      <div class ="col-sm text-center">
+        Control Continuous Placement: 
+        <button type="button" class="btn btn-primary" onclick = "continuous()">Start</button>
+        <button type="button" class="btn btn-primary" onclick = "stop()">Stop</button>
+      </div>
+    </div>
+    <div class="row instantplacement">
+        <div class ="col-sm text-center">
+        Place Many Points at Once:
+          <input type="text" id="instantplacementtext" value="1000">
+          <button type="button" class="btn btn-primary" onclick = "instantPlace()">Place</button>
+        </div>
     </div>
   </div>
-<!-- <h1 style="font-family:Consolas;text-align:center">Eat The Tide Pods</h1> -->
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
